@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samia 💗 Valentine</title>
+
+  <style>
+    :root{
+      --bg1:#fff3f6;
+      --bg2:#ffe8ef;
+      --card:#ffffffcc;
+      --pink:#ff4f86;
+      --text:#2b2b2b;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 10%, var(--bg2), transparent 60%),
+                  radial-gradient(1000px 700px at 80% 30%, #ffe0ea, transparent 55%),
+                  linear-gradient(180deg, var(--bg1), #fff);
+      color: var(--text);
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      position:relative;
+      z-index:2;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 24px 16px;
+    }
+
+    .card{
+      width:min(520px, 92vw);
+      background: var(--card);
+      border: 1px solid #ffd0dd;
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 12px 40px rgba(255, 92, 138, 0.18);
+      text-align:center;
+      backdrop-filter: blur(8px);
+    }
+
+    h1{
+      margin: 6px 0 8px;
+      color: var(--pink);
+      font-size: clamp(26px, 5vw, 34px);
+      letter-spacing: .2px;
+    }
+
+    .sub{
+      margin: 0 0 14px;
+      font-size: 16px;
+      line-height: 1.5;
+      opacity: .92;
+    }
+
+    .shayr{
+      margin: 14px auto 18px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px dashed #ffb7c9;
+      line-height: 1.65;
+      font-size: 15px;
+      text-align: center;
+      white-space: pre-line;
+    }
+
+    .question{
+      margin: 8px 0 16px;
+      font-size: clamp(18px, 4.2vw, 22px);
+      font-weight: 700;
+      color:#333;
+    }
+
+    .btnrow{
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    button{
+      border:0;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor:pointer;
+      transform: translateZ(0);
+      -webkit-tap-highlight-color: transparent;
+      transition: transform .08s ease;
+    }
+    button:active{ transform: scale(.98); }
+
+    #yes{
+      background: var(--pink);
+      color:#fff;
+      box-shadow: 0 10px 20px rgba(255,92,138,.25);
+      min-width: 140px;
+    }
+
+    #no{
+      position: fixed;
+      left: 56%;
+      top: 70%;
+      background: #9a9a9a;
+      color:#fff;
+      min-width: 120px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+    }
+
+    .tiny{
+      margin-top: 14px;
+      font-size: 13px;
+      opacity: .75;
+      line-height: 1.4;
+    }
+
+    .musicBtn{
+      margin-top: 10px;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ffc2d1;
+      color: #c03a62;
+      font-weight: 800;
+    }
+
+    .flowers{
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow:hidden;
+    }
+
+    .flower{
+      position: absolute;
+      top: -10vh;
+      font-size: var(--size, 22px);
+      opacity: var(--op, .9);
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,.08));
+      animation: fall var(--dur, 8s) linear infinite;
+      transform: translate3d(0,0,0);
+    }
+
+    @keyframes fall{
+      0%   { transform: translate3d(0, -12vh, 0) rotate(0deg); }
+      100% { transform: translate3d(0, 112vh, 0) rotate(360deg); }
+    }
+
+    .success{
+      padding: 14px 0 0;
+    }
+    .big{
+      font-size: clamp(22px, 5vw, 28px);
+      color: var(--pink);
+      font-weight: 900;
+      margin: 8px 0 10px;
+    }
+    .msg{
+      font-size: 17px;
+      line-height: 1.65;
+      margin: 8px 0 0;
+    }
+
+    /* keep audio hidden (button controls it) */
+    audio{ display:none; }
+  </style>
+</head>
+
+<body>
+  <!-- flowers -->
+  <div class="flowers" id="flowers"></div>
+
+  <!-- MP3 music (put music.mp3 in the same folder as this HTML) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="wrap">
+    <div class="card" id="card">
+      <h1>🌷 Samia 🌷</h1>
+      <p class="sub">
+        I made something small…<br/>
+        because you love small loving gestures 💗
+      </p>
+
+      <div class="shayr">
+Meny kb kha mjhy gulab dijye.
+Ya phir muhabat sy nawaz dijye.
+Aj bht udass h dill.
+Ghair ban k hi sahi ek br to awaz dijye..❤️
+      </div>
+
+      <div class="question">Will you be my Valentine?</div>
+
+      <div class="btnrow">
+        <button id="yes">Yes 💕</button>
+        <button id="no">No 🙈</button>
+      </div>
+
+      <button class="musicBtn" id="musicBtn">Play Music 🎶 (tap once)</button>
+
+      <div class="tiny">
+        (Mobile tip: if the “No” button runs away, it means it’s shy too 😅)
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1) Flowers
+    const flowerEmojis = ["🌸","🌷","💐","🌺","🌼","🪷","🥀","🌹"];
+    const flowers = document.getElementById("flowers");
+
+    function spawnFlowers(count=60){
+      for(let i=0;i<count;i++){
+        const f = document.createElement("div");
+        f.className = "flower";
+        f.textContent = flowerEmojis[Math.floor(Math.random()*flowerEmojis.length)];
+
+        const left = Math.random()*100;
+        const size = 16 + Math.random()*18;
+        const dur  = 6 + Math.random()*8;
+        const delay= Math.random()*6;
+        const op   = 0.55 + Math.random()*0.45;
+
+        f.style.left = left + "vw";
+        f.style.setProperty("--size", size + "px");
+        f.style.setProperty("--dur", dur + "s");
+        f.style.setProperty("--op", op);
+        f.style.animationDelay = delay + "s";
+
+        flowers.appendChild(f);
+      }
+    }
+    spawnFlowers(85);
+
+    // 2) Shy "No" button
+    const noBtn = document.getElementById("no");
+
+    function moveNo(){
+      const padding = 16;
+      const btnW = noBtn.offsetWidth || 120;
+      const btnH = noBtn.offsetHeight || 44;
+
+      const maxX = window.innerWidth - btnW - padding;
+      const maxY = window.innerHeight - btnH - padding;
+
+      const x = padding + Math.random() * maxX;
+      const y = (window.innerHeight * 0.45) + Math.random() * (maxY - window.innerHeight * 0.45);
+
+      noBtn.style.transition = "left .18s ease, top .18s ease";
+      noBtn.style.left = x + "px";
+      noBtn.style.top  = y + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNo);
+    noBtn.addEventListener("touchstart", (e)=>{ e.preventDefault(); moveNo(); }, {passive:false});
+
+    // 3) Yes click => message
+    const yesBtn = document.getElementById("yes");
+    const card = document.getElementById("card");
+
+    yesBtn.addEventListener("click", ()=>{
+      card.innerHTML = `
+        <div class="success">
+          <div class="big">💖 Thank you, Samia 💖</div>
+          <p class="msg">
+            You just made this day brighter ✨<br><br>
+            I promise nothing loud…<br>
+            just small smiles, gentle care,<br>
+            and little moments that feel safe 🌷
+          </p>
+          <p class="msg" style="margin-top:14px;">
+            Happy Valentine’s 💌
+          </p>
+        </div>
+      `;
+    });
+
+    // 4) MP3 Background Music — needs user tap on mobile
+    const musicBtn = document.getElementById("musicBtn");
+    const bgMusic = document.getElementById("bgMusic");
+    let musicOn = false;
+
+    musicBtn.addEventListener("click", async ()=>{
+      try{
+        if(!musicOn){
+          bgMusic.volume = 0.9;
+          await bgMusic.play();
+          musicBtn.textContent = "Music Playing 🎶";
+          musicOn = true;
+        } else {
+          bgMusic.pause();
+          bgMusic.currentTime = 0;
+          musicBtn.textContent = "Play Music 🎶 (tap once)";
+          musicOn = false;
+        }
+      }catch(err){
+        // iPhone sometimes blocks if not a real tap - but this button tap should work.
+        musicBtn.textContent = "Tap again to play 🎶";
+      }
+    });
+  </script>
+</body>
+</html>
